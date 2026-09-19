@@ -87,6 +87,8 @@ export interface ParsedModelResponse {
   toolCalls: ParsedToolCall[];
   /** Raw text content if model responded with text instead of / in addition to tool calls */
   textContent: string | null;
+  /** Chain-of-thought reasoning trace returned by the model (null if model doesn't support it) */
+  reasoning: string | null;
   /** Raw response object from the API */
   raw: unknown;
 }

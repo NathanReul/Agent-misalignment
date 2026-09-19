@@ -47,6 +47,8 @@ export interface OpenRouterChoice {
     role: string;
     content: string | null;
     tool_calls?: OpenRouterToolCall[];
+    /** Chain-of-thought reasoning trace (returned when include_reasoning is true) */
+    reasoning?: string | null;
   };
   finish_reason: string;
   index: number;
@@ -87,6 +89,8 @@ export class OpenRouterClient {
       messages: request.messages,
       temperature: request.temperature ?? 0.7,
       max_tokens: request.maxTokens ?? 2048,
+      // Request reasoning/thinking traces when available (no-op for models that don't support it)
+      include_reasoning: true,
     };
 
     if (request.seed != null) {

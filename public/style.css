@@ -493,3 +493,41 @@ tbody td { padding: 10px 14px; vertical-align: middle; }
   max-width: 300px;
 }
 #toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── Chain-of-Thought ───────────────────────────────────────────────────── */
+.cot-details {
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 6px;
+  background: rgba(167, 139, 250, 0.05);
+  overflow: hidden;
+}
+.cot-summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--purple);
+  letter-spacing: .04em;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cot-summary::-webkit-details-marker { display: none; }
+.cot-summary::before {
+  content: '▶';
+  font-size: .6rem;
+  transition: transform .15s;
+}
+.cot-details[open] .cot-summary::before { transform: rotate(90deg); }
+.cot-text {
+  padding: 10px 14px 12px;
+  font-size: .78rem;
+  line-height: 1.6;
+  color: rgba(226, 228, 240, 0.8);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  border-top: 1px solid rgba(167, 139, 250, 0.15);
+}

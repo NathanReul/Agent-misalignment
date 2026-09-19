@@ -114,6 +114,7 @@ export async function runEpisode(
         modelResponse = {
           toolCalls: [],
           textContent: '[DRY RUN] No inference performed.',
+          reasoning: null,
           raw: { id: 'dry-run', model: config.inferenceParams.model, choices: [], usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 } },
         };
       } else {

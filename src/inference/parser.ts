@@ -17,6 +17,7 @@ export function parseModelResponse(response: OpenRouterResponse): ParsedModelRes
   const message = choice.message;
 
   const textContent = message.content ?? null;
+  const reasoning = message.reasoning ?? null;
   const toolCalls: ParsedToolCall[] = [];
 
   if (message.tool_calls && message.tool_calls.length > 0) {
@@ -42,6 +43,7 @@ export function parseModelResponse(response: OpenRouterResponse): ParsedModelRes
   return {
     toolCalls,
     textContent,
+    reasoning,
     raw: response,
   };
 }

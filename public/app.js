@@ -386,6 +386,18 @@ function renderTickDetail(step, actions, textResp, discrepancies) {
       </div>`;
   }
 
+  // Chain of Thought (reasoning trace)
+  const reasoning = step.modelResponse?.reasoning;
+  if (reasoning) {
+    html += `
+      <div class="detail-section">
+        <details class="cot-details">
+          <summary class="cot-summary">🧠 Chain of Thought</summary>
+          <div class="cot-text">${escHtml(reasoning)}</div>
+        </details>
+      </div>`;
+  }
+
   // Text response
   if (textResp && textResp.toolCall?.args?.content) {
     html += `

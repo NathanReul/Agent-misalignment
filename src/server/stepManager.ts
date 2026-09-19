@@ -241,6 +241,7 @@ export function sanitizeStep(step: unknown): unknown {
     modelResponse: {
       toolCalls: (s.modelResponse as Record<string, unknown>)?.toolCalls,
       textContent: (s.modelResponse as Record<string, unknown>)?.textContent,
+      reasoning: (s.modelResponse as Record<string, unknown>)?.reasoning,
     },
     executionResults: (s.executionResults as unknown[])?.map((r) => {
       const rr = r as Record<string, unknown>;
